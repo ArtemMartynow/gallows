@@ -5,18 +5,20 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
   justify-content: center;
   align-items: center;
   .rotate-modal__content {
-    color: white;
     font-size: 20px;
     text-align: center;
     padding: 20px;
-    background-color: #2B543B;
+    background-color: #fff;
     border-radius: 10px;
     max-width: 90%;
     box-sizing: border-box;
+    p {
+      font-family: Inter;
+    }
   }
 }
