@@ -1,0 +1,105 @@
+.categories {
+  height: 100vh;
+  .categories__btn_back {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+  }
+  .categories__title {
+    width: 100%;
+    text-align: center;
+    padding-top: 22px;
+    padding-bottom: 32px;
+    color: #2B543B;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 76px;
+    font-family: "Jacques Francois Shadow", serif;
+  }
+  .categories__content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 965px;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .categories__btn {
+      display: grid;
+      place-items: center;
+      width: 357px;
+      height: 93px;
+      text-align: center;
+      position: relative;
+      border: 2px solid #000;
+      border-radius: 30px;
+      color: #2B543B;
+      text-decoration: none;
+      font-size: 32px;
+      font-family: Inter;
+      font-weight: 400;
+      transition: all 0.2s;
+      margin-bottom: 58px;
+      cursor: pointer;
+      background: #fff;
+      line-height: 37px;
+      &:hover {
+        background: #2B543B;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) { 
+  .categories {
+    .categories__content {
+      transform: translate(0, -0);
+      left: 0;
+      top: 100px;
+      width: 100%;
+      .categories__btn {
+        width: 100%;
+        margin: 20px 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) { 
+  .categories {
+    .categories__btn_back {
+      top: 10px;
+      left: 10px;
+      img {
+        width: 50px;
+      }
+    }
+    .categories__title {
+      font-size: 42px;
+      line-height: 58px;
+    }
+    .categories__content {
+      transform: translate(0, -0);
+      left: 0;
+      top: 100px;
+      .categories__btn {
+        height: 60px;
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) { 
+  .categories {
+    .categories__btn_back {
+      display: none;
+    }
+    .categories__title {
+      font-size: 36px;
+      line-height: 48px;
+    }
+  }
+}

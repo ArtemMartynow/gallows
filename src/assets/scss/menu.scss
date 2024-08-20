@@ -1,0 +1,48 @@
+.menu {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .menu__volume_off {
+    width: 50px;
+    height: 50px;
+    color: #000;
+    position: absolute;
+    bottom: 45px;
+    right: 24px;
+    cursor: pointer;
+  }
+  .menu__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .menu__title {
+      font-size: 64px;
+      line-height: 70px;
+      margin-bottom: 61px;
+      width: 100%;
+      text-align: center;
+      font-weight: 400;
+      font-family: "Jacques Francois Shadow", serif;
+    }
+    .menu__play-btn {
+      padding: 21px 65px;
+      position: relative;
+      border: 2px solid #000;
+      border-radius: 30px;
+      color: #000;
+      text-decoration: none;
+      font-size: 48px;
+      font-family: "Inknut Antiqua", serif;
+      font-weight: 400;
+      transition: all 0.2s;
+      cursor: pointer;
+      background: #fff;
+      line-height: 37px;
+      &:hover {
+        background: #2B543B;
+        color: #fff;
+      }
+    }
+  }
+}

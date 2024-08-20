@@ -1,0 +1,671 @@
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .game__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    .game__design {
+      width: 500px;
+      height: 345px;
+      position: relative;
+      padding-left: 20px;
+      .stickman__floor {
+        height: 10px;
+        width: 325px;
+        background: #000;
+        position: absolute;
+        bottom: 0;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 25px;
+          left: 25px;
+          width: 70px;
+          height: 10px;
+          background: #000;
+          transform: rotate(50deg);
+        }
+      }
+      .stickman__pillar {
+        width: 10px;
+        height: 325px;
+        background: #000;
+        position: absolute;
+        left: 50px;
+        bottom: 0;
+      }
+      .stickman__loop_active {
+        display: block;
+        height: 10px;
+        width: 325px;
+        background: #000;
+        position: absolute;
+        top: 20px;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 25px;
+          left: 25px;
+          width: 70px;
+          height: 10px;
+          background: #000;
+          transform: rotate(135deg);
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 40px;
+          left: 142px;
+          width: 80px;
+          height: 10px;
+          background: #000;
+          transform: rotate(90deg);
+        }
+      }
+      .stickman__head_active {
+        display: block;
+        height: 70px;
+        width: 70px;
+        background: none;
+        border: 5px solid #000;
+        border-radius: 40px;
+        position: absolute;
+        left: 162px;
+        top: 100px;
+      }
+      .stickman__body_active {
+        display: block;
+        height: 80px;
+        width: 7px;
+        background: #000;
+        position: absolute;
+        top: 175px;
+        left: 200px;
+      }
+      .stickman__left-arm_active {
+        display: block;
+        height: 62px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 169px;
+        left: 175px;
+        transform: rotate(-130deg);
+      }
+      .stickman__right-arm_active {
+        display: block;
+        height: 62px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 169px;
+        left: 226px;
+        transform: rotate(-48deg);
+      }
+      .stickman__left-leg_active {
+        display: block;
+        height: 62px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 240px;
+        left: 177px;
+        transform: rotate(-130deg);
+      }
+      .stickman__right-leg_active {
+        display: block;
+        height: 62px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 240px;
+        left: 223px;
+        transform: rotate(-48deg);
+      }
+    }
+    .hidden-word {
+      text-align: center;
+      font-size: 48px;
+      width: 100%;
+      margin-bottom: 50px;
+      span {
+        margin: 10px;
+        font-family: cursive;
+      }
+    }
+    .game__keyboard {
+      display: flex;
+      flex-wrap: wrap;
+      width: 420px;
+      .game__letter {
+        font-size: 28px;
+        border: 2px solid #000;
+        border-radius: 40px;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        font-family: "Inknut Antiqua", serif;
+        line-height: 0;
+        color: #2B543B;
+        cursor: pointer;
+        transition: all 0.1s;
+        margin: 5px;
+        &:active {
+          width: 44px;
+          height: 44px;
+          margin: 8px;
+        }
+        &:hover {
+          background: #cdcdcd;
+        }
+      }
+      .game__letter_active-green {
+        font-size: 28px;
+        border: 2px solid #000;
+        border-radius: 40px;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        font-family: "Inknut Antiqua", serif;
+        cursor: pointer;
+        transition: all 0.1s;
+        margin: 5px;
+        background: #2B543B;
+        color: #fff;
+        pointer-events: none;
+        &:active {
+          width: 44px;
+          height: 44px;
+          margin: 8px;
+        }
+      }
+      .game__letter_active-red {
+        font-size: 28px;
+        border: 2px solid #000;
+        border-radius: 40px;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        font-family: "Inknut Antiqua", serif;
+        cursor: pointer;
+        transition: all 0.1s;
+        margin: 5px;
+        background: #BA4F4F;
+        color: #fff;
+        pointer-events: none;
+        &:active {
+          width: 44px;
+          height: 44px;
+          margin: 8px;
+        }
+      }
+    }
+    .game-over {
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      justify-content: center;
+      height: 209px;
+      h1 {
+        width: 100%;
+        font-family: "Inknut Antiqua", serif;
+        font-size: 48px;
+        line-height: 68px;
+        height: 68px;
+      }
+      img {
+        width: 134px;
+        height: 134px;
+        cursor: pointer;
+      }
+    }
+  }
+  .game__content_victory {
+    display: flex;
+    .stickman-victory {
+      height: 323px;
+      width: 300px;
+      position: relative; 
+      .stickman-victory__head {
+        height: 90px;
+        width: 90px;
+        background: none;
+        border: 5px solid #000;
+        border-radius: 60px;
+        position: absolute;
+        left: calc(50% - 46px);
+        top: 0;
+        .stickman-victory__head_eyes {
+          position: absolute;
+          top: 38px;
+          width: 100%;
+          display: flex;
+          justify-content: space-evenly;
+          .stickman-victory__head_eye {
+            width: 13px;
+            height: 5px;
+            border-bottom: 2px solid black;
+            border-radius: 50%;
+            transform: translatey(-50%);
+          }
+        }
+        .stickman-victory__head_mouth {
+          position: absolute;
+          top: 63px;
+          left: 29px;
+          width: 32px;
+          height: 11px;
+          border-bottom: 2px solid black;
+          border-radius: 50%;
+          transform: translatey(-50%);
+        }
+      }
+      .stickman-victory__body {
+        height: 153px;
+        width: 7px;
+        background: #000;
+        position: absolute;
+        top: 97px;
+        left: 150px;
+      }
+      .stickman-victory__left_arm {
+        height: 74px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 93px;
+        left: 125px;
+        transform: rotate(-142deg);
+      }
+      .stickman-victory__right_arm {
+        height: 74px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 92px;
+        left: 177px;
+        transform: rotate(-38deg);
+      }
+      .stickman-victory__left_leg {
+        height: 96px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 234px;
+        left: 118px;
+        transform: rotate(-140deg);
+      }
+      .stickman-victory__right_leg {
+        height: 96px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 234px;
+        left: 184px;
+        transform: rotate(-39deg);
+      }
+    }
+    .game__content_victory-next {
+      position: relative;
+      height: 210px;
+      width: 325px;
+      h1 {
+        font-size: 96px;
+        line-height: 97px;
+        font-weight: 100;
+      }
+      img {
+        position: absolute;
+        top: 65px;
+        left: 144px;
+        cursor: pointer;
+      }
+    }
+  }
+  .game__content_game-over {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    .game__design {
+      width: 500px;
+      height: 345px;
+      position: relative;
+      padding-left: 20px;
+      .stickman__floor {
+        height: 10px;
+        width: 325px;
+        background: #000;
+        position: absolute;
+        bottom: 0;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 25px;
+          left: 25px;
+          width: 70px;
+          height: 10px;
+          background: #000;
+          transform: rotate(50deg);
+        }
+      }
+      .stickman__pillar {
+        width: 10px;
+        height: 325px;
+        background: #000;
+        position: absolute;
+        left: 50px;
+        bottom: 0;
+      }
+      .stickman__loop_active {
+        display: block;
+        height: 10px;
+        width: 325px;
+        background: #000;
+        position: absolute;
+        top: 20px;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 25px;
+          left: 25px;
+          width: 70px;
+          height: 10px;
+          background: #000;
+          transform: rotate(135deg);
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 40px;
+          left: 142px;
+          width: 80px;
+          height: 10px;
+          background: #000;
+          transform: rotate(90deg);
+        }
+      }
+      .stickman__head_active {
+        display: block;
+        height: 70px;
+        width: 70px;
+        background: none;
+        border: 5px solid #000;
+        border-radius: 40px;
+        position: absolute;
+        left: 162px;
+        top: 100px;
+      }
+      .stickman__body_active {
+        display: block;
+        height: 80px;
+        width: 7px;
+        background: #000;
+        position: absolute;
+        top: 175px;
+        left: 200px;
+      }
+      .stickman__left-arm_active {
+        display: block;
+        height: 62px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 169px;
+        left: 175px;
+        transform: rotate(-130deg);
+      }
+      .stickman__right-arm_active {
+        display: block;
+        height: 62px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 169px;
+        left: 226px;
+        transform: rotate(-48deg);
+      }
+      .stickman__left-leg_active {
+        display: block;
+        height: 62px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 240px;
+        left: 177px;
+        transform: rotate(-130deg);
+      }
+      .stickman__right-leg_active {
+        display: block;
+        height: 62px;
+        width: 5px;
+        background: #000;
+        position: absolute;
+        top: 240px;
+        left: 223px;
+        transform: rotate(-48deg);
+      }
+    }
+    .hidden-word {
+      text-align: center;
+      font-size: 48px;
+      width: 100%;
+      margin-bottom: 50px;
+      span {
+        margin: 10px;
+        font-family: cursive;
+      }
+    }
+    .game-over {
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      justify-content: center;
+      height: 209px;
+      h1 {
+        width: 100%;
+        font-family: "Inknut Antiqua", serif;
+        font-size: 48px;
+        line-height: 68px;
+        height: 68px;
+      }
+      img {
+        width: 134px;
+        height: 134px;
+        cursor: pointer;
+      }
+    }
+  }
+  .game__btn-menu {
+    text-decoration: none;
+    font-size: 24px;
+    font-family: "Inknut Antiqua", serif;
+    padding: 9px 16px;
+    background: #2B543B;
+    border: 2px solid #000;
+    border-radius: 10px;
+    color: #fff;
+    line-height: 23px;
+    position: absolute;
+    bottom: 18px;
+    right: 27px;
+    transition: all 0.2s;
+    &:hover {
+      background: #fff;
+      color: #1E1E1E;
+    }
+  }
+  .game__btn-restart {
+    position: absolute;
+    top: 18px;
+    right: 27px;
+    cursor: pointer;
+    &:hover {
+      transition: all 0.6s;
+      rotate: 360deg;
+    }
+  }
+}
+
+@media (max-width: 1024px) { 
+  .game {
+    .game__content {
+      justify-content: space-around;
+      .game__design {
+        width: 275px;
+        height: 210px;
+        padding: 0;
+        .stickman__floor {
+          width: 275px;
+          height: 5px;
+          &::after {
+            left: 18px;
+            height: 5px;
+          }
+        }
+        .stickman__pillar {
+          bottom: 0;
+          left: 27px;
+          height: 209px;
+          width: 5px;
+        }
+        .stickman__loop_active {
+          top: 0;
+          height: 5px;
+          width: 275px;
+          &::before {
+            height: 5px;
+            left: 20px;
+          }
+          &::after {
+            top: 15px;
+            left: 140px;
+            width: 33px;
+            height: 5px;
+          }
+        }
+        .stickman__head_active {
+          width: 45px;
+          height: 45px;
+          top: 32px;
+          left: 130px;
+        }
+        .stickman__body_active {
+          height: 60px;
+          top: 82px;
+          left: 154px;
+        }
+        .stickman__left-arm_active {
+          height: 40px;
+          left: 137px;
+          top: 80px;
+        }
+        .stickman__right-arm_active {
+          height: 40px;
+          top: 80px;
+          left: 171px;
+        }
+        .stickman__left-leg_active {
+          height: 40px;
+          left: 137px;
+          top: 133px;
+        }
+        .stickman__right-leg_active {
+          height: 40px;
+          left: 171px;
+          top: 133px;
+        }
+      }
+      .game__keyboard {
+        width: 385px;
+        .game__letter, .game__letter_active-red, .game__letter_active-green {
+          width: 45px;
+          height: 45px;
+        }
+      }
+    }
+    .game__content_game-over {
+      .game__design {
+        width: 275px;
+        height: 210px;
+        padding: 0;
+        .stickman__floor {
+          width: 275px;
+          height: 5px;
+          &::after {
+            left: 18px;
+            height: 5px;
+          }
+        }
+        .stickman__pillar {
+          bottom: 0;
+          left: 27px;
+          height: 209px;
+          width: 5px;
+        }
+        .stickman__loop_active {
+          top: 0;
+          height: 5px;
+          width: 275px;
+          &::before {
+            height: 5px;
+            left: 20px;
+          }
+          &::after {
+            top: 15px;
+            left: 140px;
+            width: 33px;
+            height: 5px;
+          }
+        }
+        .stickman__head_active {
+          width: 45px;
+          height: 45px;
+          top: 32px;
+          left: 130px;
+        }
+        .stickman__body_active {
+          height: 60px;
+          top: 82px;
+          left: 154px;
+        }
+        .stickman__left-arm_active {
+          height: 40px;
+          left: 137px;
+          top: 80px;
+        }
+        .stickman__right-arm_active {
+          height: 40px;
+          top: 80px;
+          left: 171px;
+        }
+        .stickman__left-leg_active {
+          height: 40px;
+          left: 137px;
+          top: 133px;
+        }
+        .stickman__right-leg_active {
+          height: 40px;
+          left: 171px;
+          top: 133px;
+        }
+      }
+      .game-over {
+        width: 300px;
+      }
+    }
+    .game__btn-menu {
+      bottom: auto;
+      top: 10px;
+      left: 10px;
+      right: auto;
+      padding: 5px 10px;
+      font-size: 15px;
+      
+    }
+  }
+}

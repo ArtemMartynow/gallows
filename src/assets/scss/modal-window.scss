@@ -1,0 +1,22 @@
+.rotate-modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  .rotate-modal__content {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    background-color: #2B543B;
+    border-radius: 10px;
+    max-width: 90%;
+    box-sizing: border-box;
+  }
+}
